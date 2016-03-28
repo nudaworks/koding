@@ -1,0 +1,29 @@
+        script(type='text/template', data-template='auth')
+            .tpl-container.tpl-auth
+                .tpl-content
+                    .close(onclick="history.back()") X
+                    h1 Login/Register
+                    .wrap
+                        .sheet.clearfix
+                            .box.n1
+                                .auth-form
+                                    .email
+                                        label(for="input-email") Email:
+                                        input(type="text", id="input-email", placeholder="example@domain.com")
+                                        .email-error.error-box
+                                    .pswd
+                                        label(for="input-pswd") Password:
+                                        input(type="password", id="input-pswd", placeholder="hard_to-gues^password!")
+                                        .pswd-error.error-box
+                                    .controls
+                                        button.regular.invert.butt-submit(type="button") Submit
+                            .box.n2
+                                .loader
+                            .box.n3
+                                .confirm
+                                    .question
+                                        p We don't know any users with this email address.
+                                        p Perhaps, you would like to create a new account?
+                                    .controls
+                                        button.regular.yes YES
+                                        button.regular.no NO

@@ -1,0 +1,15 @@
+        script(type='text/template', data-template='reviews')
+            | <% _.each(this.collection.get(App.State.lastProductId).get('reviews'), function(r){ %>
+            .review
+                .avatar
+                    img(src!='<%= r.avatar_url %>')
+                .username <%= r.email %>
+                .comment <%= r.comment %>
+                .rated rated this bunny as
+                    b &nbsp; <%= r.rate %> stars
+            | <% }); %>
+
+
+
+
+

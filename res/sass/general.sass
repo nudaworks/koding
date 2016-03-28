@@ -1,0 +1,97 @@
+$color_1: #dd4c0d
+$color_2: #59585F
+
+*
+  font-family: Lato
+  padding: 0
+  margin: 0
+  border-width: 0
+  outline: none
+  box-sizing: border-box
+  text-decoration: none
+  transition-duration: .4s
+
+body
+  font-size: 16px
+  min-height: 100%
+
+
+.tpl-container
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+.active
+  display: block
+
+.regular
+  padding: 1em 2.5em
+  text-align: center
+  transition: all 0.2s ease-in-out
+  font-size: 1.25em
+  background-color: $color_2
+  border: .125em solid $color_2
+  color: #fff
+  font-weight: 700
+  cursor: pointer
+  min-width: 14em
+
+  &:hover
+    background-color: transparent
+    border: .125em solid #fff
+
+  &.red
+    background: $color_1
+    border: .125em solid $color_1
+
+    &:hover
+      background-color: transparent
+      border: .125em solid #fff
+
+  &.invert
+
+    &:hover
+      border: .125em solid #444
+      color: #444
+
+.close
+  text-align: center
+  vertical-align: middle
+  width: 2em
+  height: 2em
+  position: absolute
+  top: 2%
+  right: 2%
+  background: #fff
+  border-radius: 50%
+  color: $color_1
+  font-size: 1.125em
+  font-weight: 900
+  padding-top: .4em
+  cursor: pointer
+  transition: all 0.2s ease-in-out
+
+.close:hover
+  color: #000
+
+h1
+  font-size: 3.125em
+  font-family: Amaranth
+
+.clearfix:after
+  content: ""
+  display: table
+  clear: both
+
+.tpl-content
+  height: 100%
+
+
+.app-userbar
+  height: 0
+  border: .0125em solid Salmon
+  position: fixed
+  width: 100%
+  z-index: 10

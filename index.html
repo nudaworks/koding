@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FunnyBunny</title>
+    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="res/css/custom.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.2/backbone-min.js"></script>
+    <script src="res/js/custom.js" defer></script>
+    <script src="res/js/stars.js" defer></script>
+    <script src="res/js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-userbar"></div>
+    <div class="app-container"></div>
+    <script type="text/template" data-template="about">
+      <div class="tpl-container tpl-about">
+        <div class="tpl-content">
+          <h1>So, who's the FunnyBunny?</h1>
+          <p>Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Vivamus aliquet elit ac nisl. Fusce fermentum odio nec arcu. Vivamus euismod mauris. In ut quam vitae odio lacinia tincidunt. Praesent ut ligula non mi varius sagittis. Cras sagittis. Praesent ac sem eget est egestas volutpat. Vivamus consectetuer hendrerit lacus. Cras non dolor.</p><a href="#products" class="regular nav-link">Back To Products</a>
+          <!--.close(data-path='grid') X-->
+        </div>
+      </div>
+    </script>
+    <script type="text/template" data-template="auth">
+      <div class="tpl-container tpl-auth">
+        <div class="tpl-content">
+          <div onclick="history.back()" class="close">X</div>
+          <h1>Login/Register</h1>
+          <div class="wrap">
+            <div class="sheet clearfix">
+              <div class="box n1">
+                <div class="auth-form">
+                  <div class="email">
+                    <label for="input-email">Email:</label>
+                    <input type="text" id="input-email" placeholder="example@domain.com">
+                    <div class="email-error error-box"></div>
+                  </div>
+                  <div class="pswd">
+                    <label for="input-pswd">Password:</label>
+                    <input type="password" id="input-pswd" placeholder="hard_to-gues^password!">
+                    <div class="pswd-error error-box"></div>
+                  </div>
+                  <div class="controls">
+                    <button type="button" class="regular invert butt-submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+              <div class="box n2">
+                <div class="loader"></div>
+              </div>
+              <div class="box n3">
+                <div class="confirm">
+                  <div class="question">
+                    <p>We don't know any users with this email address.</p>
+                    <p>Perhaps, you would like to create a new account?</p>
+                  </div>
+                  <div class="controls">
+                    <button class="regular yes">YES</button>
+                    <button class="regular no">NO</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" data-template="grid">
+      <div class="tpl-container tpl-grid">
+        <div class="tpl-content">
+          <div class="grid clearfix">
+            <% _.each(this.collection.models, function(model){ %>
+            <% var m = model.attributes %><a href="#products/<%= m.id %>" class="product">
+              <div class="image"><img src="<%= m.image_url %>"></div>
+              <div class="heading"><%= m.title %></div></a><% }); %>
+          </div>
+          <div class="footer-nav clearfix"><a href="#" class="item">Home</a><a href="#about" class="item"> About Us</a></div>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" data-template="intro">
+      <div class="tpl-container tpl-intro">
+        <div class="tpl-content">
+          <h1>FunnyBunny</h1>
+          <h2>Store Slogan</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <div class="controls"><a href="#products" data-path="products" class="regular red">Enter</a><a href="#about" data-path="about" class="regular">About</a></div>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" data-template="leave_review">
+      <textarea placeholder="write your review here"></textarea>
+      <div class="error-box"></div>
+      <div class="controls">
+        <div class="stars clearfix">
+          <div class="star n1"></div>
+          <div class="star n2"></div>
+          <div class="star n3"></div>
+          <div class="star n4"></div>
+          <div class="star n5"></div>
+        </div>
+        <button class="regular invert action action-submit-review">Submit</button>
+      </div>
+    </script>
+    <script type="text/template" data-template="product">
+      <% var ids = App.State.productsIds; %>
+      <% var ind = _.indexOf(App.State.productsIds, id);  %>
+      <% var prevId = (ind === 0) ? ids.length : ind;  %>
+      <% var nextId = (ind === ids.length - 1) ? 1 : ind + 2;  %>
+      <div class="tpl-container tpl-product">
+        <div class="tpl-content">
+          <div class="display">
+            <div class="inner">
+              <div class="image"><img src="<%= image_url %>"></div><a href="#products" class="for-grid"></a>
+              <div class="controls"><a href="#products/<%= prevId %>" class="prev"></a><a href="#products/<%= nextId %>" class="next"></a></div>
+            </div>
+          </div>
+          <div class="title">
+            <h1><%= title %></h1>
+          </div>
+          <div class="description"><%= description %></div>
+          <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="leave-review"></div>
+            <div class="review-list"></div>
+          </div>
+          <div class="footer-nav"><a href="" class="item">Home</a><a href="#about" class="item">About Us</a></div>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" data-template="reviews"><% _.each(this.collection.get(App.State.lastProductId).get('reviews'), function(r){ %>
+      <div class="review">
+        <div class="avatar"><img src="<%= r.avatar_url %>"></div>
+        <div class="username"><%= r.email %></div>
+        <div class="comment"><%= r.comment %></div>
+        <div class="rated">rated this bunny as<b>&nbsp; <%= r.rate %> stars</b></div>
+      </div><% }); %>
+    </script>
+    <script type="text/template" data-template="user_authed">
+      <div class="tpl-container tpl-user-authed"><% var data = this.model.attributes %>
+        <div class="tpl-content">
+          <div class="avatar"><img src="<%= data.avatar_url %>"></div>
+          <div class="user-board">
+            <div class="email"><%= data.email %></div>
+            <div class="logout"><a class="ation action-logout">logout</a></div>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" data-template="user_not_authed">
+      <div class="tpl-container tpl-user-not-authed">
+        <div class="tpl-content">
+          <div class="controls"><a href="#auth" class="action action-show-auth">Authorize</a></div>
+        </div>
+      </div>
+    </script>
+  </body>
+</html>

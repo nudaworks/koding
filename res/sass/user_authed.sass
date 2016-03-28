@@ -1,0 +1,55 @@
+.tpl-user-authed
+
+  .tpl-content
+    position: relative
+    margin: 0 auto
+    max-width: 62.5em
+
+    .avatar
+      position: absolute
+      right: 0
+      z-index: 1
+      width: 3.125em
+      margin: 2.5em 2.5em 0 0
+      opacity: .7
+
+      &:hover
+        opacity: 1
+
+        & ~ .user-board
+          display: block
+
+
+      img
+        width: 100%
+
+    .user-board
+      position: absolute
+      right: 0
+      display: none
+      background: Salmon
+      color: #fff
+      margin: 2.5em 2.5em 0 0
+      padding: .38em 4em .38em 1em
+
+      &:hover
+        display: block
+
+        & + .avatar
+          opacity: 1
+
+      .email
+
+      .logout
+
+        .action-logout
+          cursor: pointer
+          color: #222
+          
+          &:hover
+            text-decoration: underline
+
+
+
+
+

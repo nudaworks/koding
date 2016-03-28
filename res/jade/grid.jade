@@ -1,0 +1,19 @@
+        script(type='text/template', data-template='grid')
+            .tpl-container.tpl-grid
+                .tpl-content
+                    .grid.clearfix
+                        | <% _.each(this.collection.models, function(model){ %>
+                        | <% var m = model.attributes %>
+                        a.product(href!='#products/<%= m.id %>')
+                            .image
+                                img(src!='<%= m.image_url %>')
+                            .heading <%= m.title %>
+
+
+
+
+                        | <% }); %>
+
+                    .footer-nav.clearfix
+                        a.item(href='#') Home
+                        a.item(href='#about')  About Us

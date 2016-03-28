@@ -1,0 +1,35 @@
+.tpl-intro
+  background: #f9c9c5 url(../img/bg3.png) center bottom no-repeat
+  background-size: contain
+
+  .tpl-content
+    padding: 2% 0 0 0
+    max-width: 46.875em
+    margin: 0 auto
+    text-align: center
+
+    p
+      padding: 1.5em 0
+      font-size: 1.375em
+      line-height: 1.6em
+
+    a
+      display: inline-block
+      margin: 0 .5em
+      padding: 1em 2.5em
+      min-width: 11em
+
+@media all and (max-width: 800px)
+  .tpl-intro
+    background-size: 180%
+
+@media all and (max-width: 500px)
+  .tpl-intro
+    background-image: none
+
+    .tpl-content
+      padding: 2% 1em 0
+
+      a
+        display: block
+        margin-top: 1em

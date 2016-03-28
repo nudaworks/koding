@@ -1,0 +1,11 @@
+        script(type='text/template', data-template='user_authed')
+            .tpl-container.tpl-user-authed
+                <% var data = this.model.attributes %>
+                .tpl-content
+                    .avatar
+                        img(src!='<%= data.avatar_url %>')
+                    .user-board
+                        .email <%= data.email %>
+                        .logout
+                            a.ation.action-logout logout
+

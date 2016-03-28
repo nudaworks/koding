@@ -1,0 +1,138 @@
+$inner_max: 62.5em
+$inner_max_sm: 52em
+$c1: #df510e
+
+.tpl-product
+
+  .tpl-content
+    padding-bottom: 10em
+
+    .inner
+      position: relative
+      margin: 0 auto
+      max-width: $inner_max
+
+    .display
+      height: 38.75em
+      background: #55545a
+
+      .inner
+
+        .image
+          max-height: 38.75em
+          text-align: center
+
+          img
+            max-height: 38.75em
+            padding: 5.5em 0
+
+        .controls
+
+          a
+            border: 1px solid #fff
+            position: absolute
+            display: block
+            bottom: 2.5em
+            width: 3.125em
+            height: 3.125em
+
+
+            &.prev
+              margin-left: 2.5em
+              background: #fff url(http://icons.iconarchive.com/icons/icons8/ios7/256/Arrows-Left-icon.png) center center no-repeat
+              background-size: contain
+
+              &:hover
+                animation: animPrev 1.2s ease-in infinite
+
+            &.next
+              margin-left: 6.5em
+              background: #fff url(http://icons.iconarchive.com/icons/icons8/ios7/256/Arrows-Right-icon.png) center center no-repeat
+              background-size: contain
+
+              &:hover
+                animation: animNext 1.2s ease-out infinite
+
+          @keyframes animPrev
+            0%
+              background-position: center center
+            60%
+              background-position: -5em center
+            61%
+              background-position: 3.125em center
+            80%
+              background-position: center center
+
+          @keyframes animNext
+            0%
+              background-position: center center
+            60%
+              background-position: 3.125em center
+            61%
+              background-position: -5em center
+            80%
+              background-position: center center
+
+
+
+
+    .title
+      margin: 4em auto 3.125em
+      max-width: $inner_max_sm
+
+      h1
+
+    .description
+      margin: 0 auto
+      max-width: $inner_max_sm
+
+      h3
+        padding-top: .7em
+        font-size: 1.7em
+        color: Salmon
+
+      p
+        font-size: 1.375em
+        padding: .1em 0 .5em
+
+    .button.for-share
+      position: absolute
+      right: 0
+      top: 0
+
+    .for-grid
+      position: absolute
+      left: 2.5em
+      top: 2.5em
+      cursor: pointer
+      width: 3.125em
+      height: 3.125em
+      background: url(../img/grid-btn-white.png) center center no-repeat
+      background-size: contain
+
+
+    .footer-nav
+      margin-top: 10em
+      height: 10%
+
+      .item
+        float: left
+        width: 50%
+        text-align: center
+        padding-top: .7em
+        font-family: Amaranth
+        color: #fff
+        font-size: 2em
+        height: 100%
+        transition: all .2s ease-in-out
+        cursor: pointer
+
+        &:nth-child(1)
+          background: #4F4F4F
+
+        &:nth-child(2)
+          background: #333
+
+        &:hover
+          background: $c1
+

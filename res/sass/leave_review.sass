@@ -1,0 +1,38 @@
+.leave-review
+
+  textarea
+    border: .0125em solid #444
+    width: 100%
+    max-width: 100%
+    min-width: 100%
+    min-height: 8em
+    height: 8em
+    padding: .35em
+
+  .error-box
+    padding: .4em 0
+    color: red
+
+  .controls
+    padding-top: .5em
+    position: relative
+
+    .stars
+      height: 5em
+
+      .star
+        width: 3em
+        height: 3em
+        float: left
+        background: url(../img/star-grey.png) center center no-repeat
+        background-size: contain
+        cursor: pointer
+
+        &.active
+          background-image: url(../img/star-red.png)
+
+    button
+      position: absolute
+      right: 0
+      top: 0
+      padding: .8em 2em
